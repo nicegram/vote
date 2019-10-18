@@ -15,7 +15,7 @@ window.onload = function () {
 				error: false,
 				loaded: false,
 				api: {
-					requests: 'http://thevoice.yuriy.gr/requests',
+					requests: 'http://209.250.245.10:8080/requests',
 				},
 				newRequest: '',
 				lengthLimit: 255
