@@ -15,7 +15,7 @@ window.onload = function () {
 				error: false,
 				loaded: false,
 				api: {
-					requests: 'https://thevoice.yuriy.gr/requests',
+					requests: 'http://thevoice.yuriy.gr/requests',
 				},
 				newRequest: '',
 				lengthLimit: 255
@@ -41,7 +41,7 @@ window.onload = function () {
 				.then(function(response) {
 					if (response.body.status === 'success')
 						this.requests = response.body.requests;
-	
+
 					if (response.body.status === 'error')
 						console.error(response.body.message);
 				})
