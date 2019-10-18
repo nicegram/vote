@@ -1,0 +1,8 @@
+{
+	"name": "THECHAN Uservoice",
+	"short_name": "THECHAN Uservoice",
+	"theme_color": "#111",
+	"background_color": "#B8E986",
+	"start_url": "/",
+	"display": "standalone"
+}

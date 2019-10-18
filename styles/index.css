@@ -1,0 +1,119 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: #000;
+  color: white;
+  min-height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 3.5em;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 1.9em;
+  margin-top: 10px;
+  margin-bottom: 1em;
+}
+
+a {
+  background: white;
+  padding: 0.5em 0.8em;
+  display: inline-block;
+  color: black;
+  border-radius: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1em;
+  margin-right: 1em;
+  transition: all 0.1s ease-in-out;
+}
+
+a:hover {
+  opacity: 0.9;
+}
+
+.preview {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.preview-image {
+  background: url('../img/phone.png') no-repeat right center;
+  background-size: contain;
+  max-height: 720px;
+  margin-right: 40px;
+  flex-grow: 1;
+}
+
+.info {
+  flex-grow: 1;
+  flex-basis: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 960px) {
+
+  .preview-image {
+    display: block;
+    margin: 0;
+    height: 100%;
+    background-position-x: center;
+  }
+
+  .info {
+    justify-content: flex-start;
+    padding: 40px 0 40px 40px;
+    box-sizing: padding-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+@media screen and (max-width: 720px){
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (max-height: 500px){
+  .preview {
+    padding: 10px 0;
+  }
+
+  .info {
+    padding: 20px 40px; 
+  }
+}
