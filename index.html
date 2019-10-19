@@ -1,23 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="styles/index.css">
-  <meta name= "viewport" content= "width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,900" rel="stylesheet">
-  <title>The Chan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico">
+
+    <title>Nicegram Uservoice</title>
+
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700&amp;subset=latin,cyrillic-ext">
+    <link rel="stylesheet" type="text/css" href="static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.6/vue.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.3/vue-resource.min.js"></script>
+    <script type="text/javascript" src="static/js/main.js"></script>
+
+    <script type="text/x-template" id="requests-template">
+
+        <section v-bind:class="type">
+            <div class="warp">
+
+                <h2 class="section__title" v-html="title"></h2>
+
+                <div class="section__content" v-if="loaded && !error">
+
+                    <div class="request__block" v-if="type == 'all'">
+                        <div class="request__text">
+                            <textarea placeholder="Keep it short" type="text" v-bind:maxlength="lengthLimit"
+                                      v-model="newRequest"></textarea>
+                        </div>
+                        <div class="request__footer">
+                            <button class="btn" v-on:click="submitRequest(newRequest, $event)"
+                                    v-bind:disabled="newRequestLength > lengthLimit || newRequestLength == 0">SUBMIT
+                            </button>
+                            <span class="request__letterCount">{{ newRequestLength }}/{{ lengthLimit }}</span>
+                        </div>
+                    </div>
+
+                    <div class="request__block" v-for="request in requests" key="request._id" v-bind:id="request._id">
+                        <div class="request__text">
+                            {{ request.text }}
+                        </div>
+                        <div class="request__footer">
+							<span class="request__voting">
+								<button class="btn request__btn" v-on:click="submitVote(request._id, $event)">▲</button>
+								<span class="request__votes">{{ request.vote }}</span>
+							</span>
+                            <span class="request__status" v-if="request.status != ''"
+                                  v-bind:class="getClassByStatus(request.status)">{{ request.status }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section__info" v-if="!loaded || error">
+                    <div v-if="!loaded">Loading...</div>
+                    <div v-if="error">Some error...</div>
+                </div>
+
+            </div>
+        </section>
+
+    </script>
+
 </head>
 <body>
-  <div class="preview">
-    <div class="preview-image"></div>
-  </div>
-  <div class="info">
-    <h1>The Chan</h1>
-    <h2>A browser for imageboards</h2>
-    <div>
-      <a href="https://itunes.apple.com/app/apple-store/id1199453022?pt=118512194&ct=website&mt=8">App Store</a>
-      <a href="voice/">User Voice</a>
-    </div>
-  </div>
+<div id="app">
+
+    <header>
+        <div class="warp">
+            <div class="header__logo">
+                the chan
+                <span class="header__sublogo">uservoice</span>
+            </div>
+        </div>
+    </header>
+
+    <keep-alive>
+        <requests-section
+                type="approved"
+                title="Approved requests">
+        </requests-section>
+    </keep-alive>
+
+    <keep-alive>
+        <requests-section
+                type="all"
+                title="All requests">
+        </requests-section>
+    </keep-alive>
+
+
+</div>
 </body>
 </html>
