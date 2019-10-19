@@ -15,7 +15,7 @@ window.onload = function () {
 				error: false,
 				loaded: false,
 				api: {
-					requests: 'http://thevoice.yuriy.gr/requests',
+					requests: 'https://uservoiceapi.nicegram.app/requests',
 				},
 				newRequest: '',
 				lengthLimit: 255
