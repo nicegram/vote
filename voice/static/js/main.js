@@ -108,7 +108,7 @@ window.onload = function () {
 				});
 			},
 			getClassByStatus: function (status) {
-				if (status === null) {
+				if (status == null) {
 					return '';
 				}
 				return status.toLowerCase().split(' ').join('-');
