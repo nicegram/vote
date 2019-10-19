@@ -90,7 +90,7 @@ window.onload = function () {
 					if (response.body.status === 'success') {
 						var len = this.requests.length;
 						for (var i = 0; i < len; i++) {
-							if (this.requests[i]['id'] == request_id) {
+							if (this.requests[i]['_id'] == request_id) {
 								this.requests[i]['vote'] = response.body.request.vote;
 								break;
 							}
