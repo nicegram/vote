@@ -47,7 +47,7 @@
                             {{ request.text }}
                         </div>
                         <div class="request__footer">
-							<span class="request__voting" v-if="type == 'rejected'">
+							<span class="request__voting" v-if="type !== 'rejected'">
 								<button class="btn request__btn" v-on:click="submitVote(request._id, $event)">▲</button>
 								<span class="request__votes">{{ request.vote }}</span>
 							</span>
