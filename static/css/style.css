@@ -154,6 +154,7 @@ section {
 .request__status.not-now { color: #bababa; }
 .request__status.in-development { color: #f7189e; }
 .request__status.planned { color: #499bff; }
+.request__status.rejected { color: #ff0000; }
 .request__letterCount {
 	color: #716c6c;
 	font-weight: 700;
@@ -265,7 +266,7 @@ textarea {
 :-moz-placeholder           {color:#716c6c;}
 :-ms-input-placeholder      {color:#716c6c;}
 
-/* Media 
+/* Media
  ================================== */
  @media screen and (min-width: 1440px) {
 	.request__block {
