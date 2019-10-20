@@ -47,7 +47,7 @@
                             {{ request.text }}
                         </div>
                         <div class="request__footer">
-							<span class="request__voting">
+							<span class="request__voting" v-if="type == 'rejected'">
 								<button class="btn request__btn" v-on:click="submitVote(request._id, $event)">▲</button>
 								<span class="request__votes">{{ request.vote }}</span>
 							</span>
@@ -84,6 +84,13 @@
         <requests-section
                 type="approved"
                 title="Approved requests">
+        </requests-section>
+    </keep-alive>
+
+    <keep-alive>
+        <requests-section
+                type="rejected"
+                title="Rejected requests">
         </requests-section>
     </keep-alive>
 
