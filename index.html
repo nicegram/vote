@@ -51,6 +51,10 @@
 								<button class="btn request__btn" v-on:click="submitVote(request._id, $event)">▲</button>
 								<span class="request__votes">{{ request.vote }}</span>
 							</span>
+                            <span class="request__response" v-if="request.status == 'rejected'">
+                                <a :href="'https://github.com/nicegram/vote/issues/' + request._id"
+                                   target="_blank" class="rejected">Reject Reason »</a>
+                            </span>
                             <span class="request__status" v-if="request.status != ''"
                                   v-bind:class="getClassByStatus(request.status)">{{ request.status }}</span>
                         </div>

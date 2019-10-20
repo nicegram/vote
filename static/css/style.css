@@ -162,6 +162,17 @@ section {
 	text-transform: uppercase;
 }
 
+a.rejected {
+	color: #ffac45;
+	text-decoration: none;
+	font-weight: bold;
+}
+a.rejected:hover {
+	color: #FF913C;
+}
+a.rejected:active {
+	color: #FF913C;
+}
 
 
 /* Form control
